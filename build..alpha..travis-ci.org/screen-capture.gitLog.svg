@@ -1,46 +1,15 @@
-<svg height="686" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="686" fill="#555" width="720"></rect>
+<svg height="190" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="190" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">2016-12-29 03:35:29 +0800</tspan>
-<tspan x="10" y="42">update doc</tspan>
-<tspan x="10" y="58"></tspan>
-<tspan x="10" y="74">2016-12-29 03:27:43 +0800</tspan>
-<tspan x="10" y="90">- npm publish 2016.12.2</tspan>
-<tspan x="10" y="106"></tspan>
-<tspan x="10" y="122">2016-12-29 02:29:18 +0800</tspan>
-<tspan x="10" y="138">update readme</tspan>
-<tspan x="10" y="154"></tspan>
-<tspan x="10" y="170">2016-12-28 23:13:03 +0800</tspan>
-<tspan x="10" y="186">downgrade lodash</tspan>
-<tspan x="10" y="202"></tspan>
-<tspan x="10" y="218">2016-12-28 23:09:57 +0800</tspan>
-<tspan x="10" y="234">downgrade lodash</tspan>
-<tspan x="10" y="250"></tspan>
-<tspan x="10" y="266">2016-12-28 23:09:47 +0800</tspan>
-<tspan x="10" y="282">downgrade lodash</tspan>
-<tspan x="10" y="298"></tspan>
-<tspan x="10" y="314">2016-12-28 23:05:10 +0800</tspan>
-<tspan x="10" y="330">update node_modules</tspan>
-<tspan x="10" y="346"></tspan>
-<tspan x="10" y="362">2016-12-28 22:40:19 +0800</tspan>
-<tspan x="10" y="378">update docs</tspan>
-<tspan x="10" y="394"></tspan>
-<tspan x="10" y="410">2016-12-28 22:37:51 +0800</tspan>
-<tspan x="10" y="426">update docs</tspan>
-<tspan x="10" y="442"></tspan>
-<tspan x="10" y="458">2016-12-28 22:29:07 +0800</tspan>
-<tspan x="10" y="474">update docs</tspan>
-<tspan x="10" y="490"></tspan>
-<tspan x="10" y="506">2016-12-28 22:16:50 +0800</tspan>
-<tspan x="10" y="522">update postinstall</tspan>
-<tspan x="10" y="538"></tspan>
-<tspan x="10" y="554">2016-12-28 22:10:55 +0800</tspan>
-<tspan x="10" y="570">update postinstall</tspan>
-<tspan x="10" y="586"></tspan>
-<tspan x="10" y="602">2016-12-28 21:11:59 +0800</tspan>
-<tspan x="10" y="618">- npm publish 2016.12.1</tspan>
-<tspan x="10" y="634"></tspan>
-<tspan x="10" y="650">2014-03-26 02:31:50 +0700</tspan>
-<tspan x="10" y="666">add blank README.md</tspan>
+<tspan x="10" y="26">2016-12-29 03:40:41 +0800</tspan>
+<tspan x="10" y="42">- npm publish 2016.12.2</tspan>
+<tspan x="10" y="58">- streamline static-dependencies</tspan>
+<tspan x="10" y="74">- add file busybox</tspan>
+<tspan x="10" y="90"></tspan>
+<tspan x="10" y="106">2016-12-28 21:11:59 +0800</tspan>
+<tspan x="10" y="122">- npm publish 2016.12.1</tspan>
+<tspan x="10" y="138"></tspan>
+<tspan x="10" y="154">2014-03-26 02:31:50 +0700</tspan>
+<tspan x="10" y="170">add blank README.md</tspan>
 </text>
 </svg>
