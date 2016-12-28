@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26">  1.  2016-12-28 21:11:59 +0800       64 byte  .gitignore</tspan>
 <tspan x="10" y="42">  2.  2016-12-28 21:11:59 +0800     7489 byte  .travis.yml</tspan>
-<tspan x="10" y="58">  3.  2016-12-28 22:40:19 +0800     6361 byte  README.md</tspan>
+<tspan x="10" y="58">  3.  2016-12-29 02:29:18 +0800     9678 byte  README.md</tspan>
 <tspan x="10" y="74">  4.  2016-12-28 21:11:59 +0800      135 byte  ansi-regex/index.js</tspan>
 <tspan x="10" y="90">  5.  2016-12-28 21:11:59 +0800     1119 byte  ansi-regex/license</tspan>
 <tspan x="10" y="106">  6.  2016-12-28 21:11:59 +0800     2682 byte  ansi-regex/package.json</tspan>
