@@ -1,0 +1,256 @@
+<svg height="4046" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="4046" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26"></tspan>
+<tspan x="10" y="42">[MODE_BUILD=npmTestPublished] - 2016-12-28T18:19:54Z - npm-testing published-package grpc-lite</tspan>
+<tspan x="10" y="58"></tspan>
+<tspan x="10" y="74"></tspan>
+<tspan x="10" y="90">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="106">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
+<tspan x="10" y="122"></tspan>
+<tspan x="10" y="138">downloading https://github.com/kaizhu256/node-grpc-lite/raw/binary-v1.0.1/grpc_node-v1.0.1-abi48\</tspan>
+<tspan x="10" y="154">-linux-x64.node to /tmp/grpc_node-v1.0.1-abi48-linux-x64.node ...</tspan>
+######################################################################## 100.0%######################################################################## 100.0%<tspan x="10" y="170">######################################################################## 100.0%</tspan>
+<tspan x="10" y="186">could not find prebuilt-binary for current node abi-version abi48-linux-x64</tspan>
+<tspan x="10" y="202">defaulting to npm-install ...</tspan>
+<tspan x="10" y="218"></tspan>
+<tspan x="10" y="234">&gt; grpc@1.0.1 install /tmp/grpc_node-v1.0.1-abi48-linux-x64.node.dir/node_modules/grpc</tspan>
+<tspan x="10" y="250">&gt; node-pre-gyp install --fallback-to-build</tspan>
+<tspan x="10" y="266"></tspan>
+<tspan x="10" y="282">[grpc] Success: "/tmp/grpc_node-v1.0.1-abi48-linux-x64.node.dir/node_modules/grpc/src/node/exten\</tspan>
+<tspan x="10" y="298">sion_binary/grpc_node.node" is installed via remote</tspan>
+<tspan x="10" y="314">/tmp/grpc_node-v1.0.1-abi48-linux-x64.node.dir</tspan>
+<tspan x="10" y="330">└─┬ grpc@1.0.1 </tspan>
+<tspan x="10" y="346">  ├── arguejs@0.2.3 </tspan>
+<tspan x="10" y="362">  ├── lodash@4.17.3 </tspan>
+<tspan x="10" y="378">  ├── nan@2.5.0 </tspan>
+<tspan x="10" y="394">  ├─┬ node-pre-gyp@0.6.31 </tspan>
+<tspan x="10" y="410">  │ ├─┬ mkdirp@0.5.1 </tspan>
+<tspan x="10" y="426">  │ │ └── minimist@0.0.8 </tspan>
+<tspan x="10" y="442">  │ ├─┬ nopt@3.0.6 </tspan>
+<tspan x="10" y="458">  │ │ └── abbrev@1.0.9 </tspan>
+<tspan x="10" y="474">  │ ├─┬ npmlog@4.0.0 </tspan>
+<tspan x="10" y="490">  │ │ ├─┬ are-we-there-yet@1.1.2 </tspan>
+<tspan x="10" y="506">  │ │ │ ├── delegates@1.0.0 </tspan>
+<tspan x="10" y="522">  │ │ │ └─┬ readable-stream@2.1.5 </tspan>
+<tspan x="10" y="538">  │ │ │   ├── buffer-shims@1.0.0 </tspan>
+<tspan x="10" y="554">  │ │ │   ├── core-util-is@1.0.2 </tspan>
+<tspan x="10" y="570">  │ │ │   ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="586">  │ │ │   ├── isarray@1.0.0 </tspan>
+<tspan x="10" y="602">  │ │ │   ├── process-nextick-args@1.0.7 </tspan>
+<tspan x="10" y="618">  │ │ │   ├── string_decoder@0.10.31 </tspan>
+<tspan x="10" y="634">  │ │ │   └── util-deprecate@1.0.2 </tspan>
+<tspan x="10" y="650">  │ │ ├── console-control-strings@1.1.0 </tspan>
+<tspan x="10" y="666">  │ │ ├─┬ gauge@2.6.0 </tspan>
+<tspan x="10" y="682">  │ │ │ ├── aproba@1.0.4 </tspan>
+<tspan x="10" y="698">  │ │ │ ├── has-color@0.1.7 </tspan>
+<tspan x="10" y="714">  │ │ │ ├── has-unicode@2.0.1 </tspan>
+<tspan x="10" y="730">  │ │ │ ├── object-assign@4.1.0 </tspan>
+<tspan x="10" y="746">  │ │ │ ├── signal-exit@3.0.1 </tspan>
+<tspan x="10" y="762">  │ │ │ ├─┬ string-width@1.0.2 </tspan>
+<tspan x="10" y="778">  │ │ │ │ ├─┬ code-point-at@1.0.1 </tspan>
+<tspan x="10" y="794">  │ │ │ │ │ └── number-is-nan@1.0.1 </tspan>
+<tspan x="10" y="810">  │ │ │ │ └─┬ is-fullwidth-code-point@1.0.0 </tspan>
+<tspan x="10" y="826">  │ │ │ │   └── number-is-nan@1.0.1 </tspan>
+<tspan x="10" y="842">  │ │ │ ├─┬ strip-ansi@3.0.1 </tspan>
+<tspan x="10" y="858">  │ │ │ │ └── ansi-regex@2.0.0 </tspan>
+<tspan x="10" y="874">  │ │ │ └── wide-align@1.1.0 </tspan>
+<tspan x="10" y="890">  │ │ └── set-blocking@2.0.0 </tspan>
+<tspan x="10" y="906">  │ ├─┬ rc@1.1.6 </tspan>
+<tspan x="10" y="922">  │ │ ├── deep-extend@0.4.1 </tspan>
+<tspan x="10" y="938">  │ │ ├── ini@1.3.4 </tspan>
+<tspan x="10" y="954">  │ │ ├── minimist@1.2.0 </tspan>
+<tspan x="10" y="970">  │ │ └── strip-json-comments@1.0.4 </tspan>
+<tspan x="10" y="986">  │ ├─┬ request@2.76.0 </tspan>
+<tspan x="10" y="1002">  │ │ ├── aws-sign2@0.6.0 </tspan>
+<tspan x="10" y="1018">  │ │ ├── aws4@1.5.0 </tspan>
+<tspan x="10" y="1034">  │ │ ├── caseless@0.11.0 </tspan>
+<tspan x="10" y="1050">  │ │ ├─┬ combined-stream@1.0.5 </tspan>
+<tspan x="10" y="1066">  │ │ │ └── delayed-stream@1.0.0 </tspan>
+<tspan x="10" y="1082">  │ │ ├── extend@3.0.0 </tspan>
+<tspan x="10" y="1098">  │ │ ├── forever-agent@0.6.1 </tspan>
+<tspan x="10" y="1114">  │ │ ├─┬ form-data@2.1.1 </tspan>
+<tspan x="10" y="1130">  │ │ │ └── asynckit@0.4.0 </tspan>
+<tspan x="10" y="1146">  │ │ ├─┬ har-validator@2.0.6 </tspan>
+<tspan x="10" y="1162">  │ │ │ ├─┬ chalk@1.1.3 </tspan>
+<tspan x="10" y="1178">  │ │ │ │ ├── ansi-styles@2.2.1 </tspan>
+<tspan x="10" y="1194">  │ │ │ │ ├── escape-string-regexp@1.0.5 </tspan>
+<tspan x="10" y="1210">  │ │ │ │ ├─┬ has-ansi@2.0.0 </tspan>
+<tspan x="10" y="1226">  │ │ │ │ │ └── ansi-regex@2.0.0 </tspan>
+<tspan x="10" y="1242">  │ │ │ │ ├─┬ strip-ansi@3.0.1 </tspan>
+<tspan x="10" y="1258">  │ │ │ │ │ └── ansi-regex@2.0.0 </tspan>
+<tspan x="10" y="1274">  │ │ │ │ └── supports-color@2.0.0 </tspan>
+<tspan x="10" y="1290">  │ │ │ ├─┬ commander@2.9.0 </tspan>
+<tspan x="10" y="1306">  │ │ │ │ └── graceful-readlink@1.0.1 </tspan>
+<tspan x="10" y="1322">  │ │ │ ├─┬ is-my-json-valid@2.15.0 </tspan>
+<tspan x="10" y="1338">  │ │ │ │ ├── generate-function@2.0.0 </tspan>
+<tspan x="10" y="1354">  │ │ │ │ ├─┬ generate-object-property@1.2.0 </tspan>
+<tspan x="10" y="1370">  │ │ │ │ │ └── is-property@1.0.2 </tspan>
+<tspan x="10" y="1386">  │ │ │ │ ├── jsonpointer@4.0.0 </tspan>
+<tspan x="10" y="1402">  │ │ │ │ └── xtend@4.0.1 </tspan>
+<tspan x="10" y="1418">  │ │ │ └─┬ pinkie-promise@2.0.1 </tspan>
+<tspan x="10" y="1434">  │ │ │   └── pinkie@2.0.4 </tspan>
+<tspan x="10" y="1450">  │ │ ├─┬ hawk@3.1.3 </tspan>
+<tspan x="10" y="1466">  │ │ │ ├── boom@2.10.1 </tspan>
+<tspan x="10" y="1482">  │ │ │ ├── cryptiles@2.0.5 </tspan>
+<tspan x="10" y="1498">  │ │ │ ├── hoek@2.16.3 </tspan>
+<tspan x="10" y="1514">  │ │ │ └── sntp@1.0.9 </tspan>
+<tspan x="10" y="1530">  │ │ ├─┬ http-signature@1.1.1 </tspan>
+<tspan x="10" y="1546">  │ │ │ ├── assert-plus@0.2.0 </tspan>
+<tspan x="10" y="1562">  │ │ │ ├─┬ jsprim@1.3.1 </tspan>
+<tspan x="10" y="1578">  │ │ │ │ ├── extsprintf@1.0.2 </tspan>
+<tspan x="10" y="1594">  │ │ │ │ ├── json-schema@0.2.3 </tspan>
+<tspan x="10" y="1610">  │ │ │ │ └── verror@1.3.6 </tspan>
+<tspan x="10" y="1626">  │ │ │ └─┬ sshpk@1.10.1 </tspan>
+<tspan x="10" y="1642">  │ │ │   ├── asn1@0.2.3 </tspan>
+<tspan x="10" y="1658">  │ │ │   ├── assert-plus@1.0.0 </tspan>
+<tspan x="10" y="1674">  │ │ │   ├── bcrypt-pbkdf@1.0.0 </tspan>
+<tspan x="10" y="1690">  │ │ │   ├── dashdash@1.14.0 </tspan>
+<tspan x="10" y="1706">  │ │ │   ├── ecc-jsbn@0.1.1 </tspan>
+<tspan x="10" y="1722">  │ │ │   ├── getpass@0.1.6 </tspan>
+<tspan x="10" y="1738">  │ │ │   ├── jodid25519@1.0.2 </tspan>
+<tspan x="10" y="1754">  │ │ │   ├── jsbn@0.1.0 </tspan>
+<tspan x="10" y="1770">  │ │ │   └── tweetnacl@0.14.3 </tspan>
+<tspan x="10" y="1786">  │ │ ├── is-typedarray@1.0.0 </tspan>
+<tspan x="10" y="1802">  │ │ ├── isstream@0.1.2 </tspan>
+<tspan x="10" y="1818">  │ │ ├── json-stringify-safe@5.0.1 </tspan>
+<tspan x="10" y="1834">  │ │ ├─┬ mime-types@2.1.12 </tspan>
+<tspan x="10" y="1850">  │ │ │ └── mime-db@1.24.0 </tspan>
+<tspan x="10" y="1866">  │ │ ├── node-uuid@1.4.7 </tspan>
+<tspan x="10" y="1882">  │ │ ├── oauth-sign@0.8.2 </tspan>
+<tspan x="10" y="1898">  │ │ ├── qs@6.3.0 </tspan>
+<tspan x="10" y="1914">  │ │ ├── stringstream@0.0.5 </tspan>
+<tspan x="10" y="1930">  │ │ ├─┬ tough-cookie@2.3.2 </tspan>
+<tspan x="10" y="1946">  │ │ │ └── punycode@1.4.1 </tspan>
+<tspan x="10" y="1962">  │ │ └── tunnel-agent@0.4.3 </tspan>
+<tspan x="10" y="1978">  │ ├─┬ rimraf@2.5.4 </tspan>
+<tspan x="10" y="1994">  │ │ └─┬ glob@7.1.1 </tspan>
+<tspan x="10" y="2010">  │ │   ├── fs.realpath@1.0.0 </tspan>
+<tspan x="10" y="2026">  │ │   ├─┬ inflight@1.0.6 </tspan>
+<tspan x="10" y="2042">  │ │   │ └── wrappy@1.0.2 </tspan>
+<tspan x="10" y="2058">  │ │   ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="2074">  │ │   ├─┬ minimatch@3.0.3 </tspan>
+<tspan x="10" y="2090">  │ │   │ └─┬ brace-expansion@1.1.6 </tspan>
+<tspan x="10" y="2106">  │ │   │   ├── balanced-match@0.4.2 </tspan>
+<tspan x="10" y="2122">  │ │   │   └── concat-map@0.0.1 </tspan>
+<tspan x="10" y="2138">  │ │   ├─┬ once@1.4.0 </tspan>
+<tspan x="10" y="2154">  │ │   │ └── wrappy@1.0.2 </tspan>
+<tspan x="10" y="2170">  │ │   └── path-is-absolute@1.0.1 </tspan>
+<tspan x="10" y="2186">  │ ├── semver@5.3.0 </tspan>
+<tspan x="10" y="2202">  │ ├─┬ tar@2.2.1 </tspan>
+<tspan x="10" y="2218">  │ │ ├── block-stream@0.0.9 </tspan>
+<tspan x="10" y="2234">  │ │ ├─┬ fstream@1.0.10 </tspan>
+<tspan x="10" y="2250">  │ │ │ └── graceful-fs@4.1.9 </tspan>
+<tspan x="10" y="2266">  │ │ └── inherits@2.0.3 </tspan>
+<tspan x="10" y="2282">  │ └─┬ tar-pack@3.3.0 </tspan>
+<tspan x="10" y="2298">  │   ├─┬ debug@2.2.0 </tspan>
+<tspan x="10" y="2314">  │   │ └── ms@0.7.1 </tspan>
+<tspan x="10" y="2330">  │   ├─┬ fstream@1.0.10 </tspan>
+<tspan x="10" y="2346">  │   │ ├── graceful-fs@4.1.9 </tspan>
+<tspan x="10" y="2362">  │   │ └── inherits@2.0.3 </tspan>
+<tspan x="10" y="2378">  │   ├─┬ fstream-ignore@1.0.5 </tspan>
+<tspan x="10" y="2394">  │   │ ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="2410">  │   │ └─┬ minimatch@3.0.3 </tspan>
+<tspan x="10" y="2426">  │   │   └─┬ brace-expansion@1.1.6 </tspan>
+<tspan x="10" y="2442">  │   │     ├── balanced-match@0.4.2 </tspan>
+<tspan x="10" y="2458">  │   │     └── concat-map@0.0.1 </tspan>
+<tspan x="10" y="2474">  │   ├─┬ once@1.3.3 </tspan>
+<tspan x="10" y="2490">  │   │ └── wrappy@1.0.2 </tspan>
+<tspan x="10" y="2506">  │   ├─┬ readable-stream@2.1.5 </tspan>
+<tspan x="10" y="2522">  │   │ ├── buffer-shims@1.0.0 </tspan>
+<tspan x="10" y="2538">  │   │ ├── core-util-is@1.0.2 </tspan>
+<tspan x="10" y="2554">  │   │ ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="2570">  │   │ ├── isarray@1.0.0 </tspan>
+<tspan x="10" y="2586">  │   │ ├── process-nextick-args@1.0.7 </tspan>
+<tspan x="10" y="2602">  │   │ ├── string_decoder@0.10.31 </tspan>
+<tspan x="10" y="2618">  │   │ └── util-deprecate@1.0.2 </tspan>
+<tspan x="10" y="2634">  │   └── uid-number@0.0.6 </tspan>
+<tspan x="10" y="2650">  └─┬ protobufjs@5.0.1 </tspan>
+<tspan x="10" y="2666">    ├─┬ ascli@1.0.1 </tspan>
+<tspan x="10" y="2682">    │ ├── colour@0.7.1 </tspan>
+<tspan x="10" y="2698">    │ └── optjs@3.2.2 </tspan>
+<tspan x="10" y="2714">    ├─┬ bytebuffer@5.0.1 </tspan>
+<tspan x="10" y="2730">    │ └── long@3.2.0 </tspan>
+<tspan x="10" y="2746">    ├─┬ glob@5.0.15 </tspan>
+<tspan x="10" y="2762">    │ ├─┬ inflight@1.0.6 </tspan>
+<tspan x="10" y="2778">    │ │ └── wrappy@1.0.2 </tspan>
+<tspan x="10" y="2794">    │ ├── inherits@2.0.3 </tspan>
+<tspan x="10" y="2810">    │ ├─┬ minimatch@3.0.3 </tspan>
+<tspan x="10" y="2826">    │ │ └─┬ brace-expansion@1.1.6 </tspan>
+<tspan x="10" y="2842">    │ │   ├── balanced-match@0.4.2 </tspan>
+<tspan x="10" y="2858">    │ │   └── concat-map@0.0.1 </tspan>
+<tspan x="10" y="2874">    │ ├── once@1.4.0 </tspan>
+<tspan x="10" y="2890">    │ └── path-is-absolute@1.0.1 </tspan>
+<tspan x="10" y="2906">    └─┬ yargs@3.32.0 </tspan>
+<tspan x="10" y="2922">      ├── camelcase@2.1.1 </tspan>
+<tspan x="10" y="2938">      ├─┬ cliui@3.2.0 </tspan>
+<tspan x="10" y="2954">      │ ├─┬ strip-ansi@3.0.1 </tspan>
+<tspan x="10" y="2970">      │ │ └── ansi-regex@2.0.0 </tspan>
+<tspan x="10" y="2986">      │ └── wrap-ansi@2.1.0 </tspan>
+<tspan x="10" y="3002">      ├── decamelize@1.2.0 </tspan>
+<tspan x="10" y="3018">      ├─┬ os-locale@1.4.0 </tspan>
+<tspan x="10" y="3034">      │ └─┬ lcid@1.0.0 </tspan>
+<tspan x="10" y="3050">      │   └── invert-kv@1.0.0 </tspan>
+<tspan x="10" y="3066">      ├─┬ string-width@1.0.2 </tspan>
+<tspan x="10" y="3082">      │ ├── code-point-at@1.1.0 </tspan>
+<tspan x="10" y="3098">      │ └─┬ is-fullwidth-code-point@1.0.0 </tspan>
+<tspan x="10" y="3114">      │   └── number-is-nan@1.0.1 </tspan>
+<tspan x="10" y="3130">      ├── window-size@0.1.4 </tspan>
+<tspan x="10" y="3146">      └── y18n@3.2.1 </tspan>
+<tspan x="10" y="3162"></tspan>
+<tspan x="10" y="3178">npm WARN enoent ENOENT: no such file or directory, open '/tmp/grpc_node-v1.0.1-abi48-linux-x64.n\</tspan>
+<tspan x="10" y="3194">ode.dir/package.json'</tspan>
+<tspan x="10" y="3210">npm WARN grpc_node-v1.0.1-abi48-linux-x64.node.dir No description</tspan>
+<tspan x="10" y="3226">npm WARN grpc_node-v1.0.1-abi48-linux-x64.node.dir No repository field.</tspan>
+<tspan x="10" y="3242">npm WARN grpc_node-v1.0.1-abi48-linux-x64.node.dir No README data</tspan>
+<tspan x="10" y="3258">npm WARN grpc_node-v1.0.1-abi48-linux-x64.node.dir No license field.</tspan>
+<tspan x="10" y="3274">/tmp/app</tspan>
+<tspan x="10" y="3290">└── grpc-lite@2016.12.1 </tspan>
+<tspan x="10" y="3306"></tspan>
+<tspan x="10" y="3322">npm WARN enoent ENOENT: no such file or directory, open '/tmp/app/package.json'</tspan>
+<tspan x="10" y="3338">npm WARN app No description</tspan>
+<tspan x="10" y="3354">npm WARN app No repository field.</tspan>
+<tspan x="10" y="3370">npm WARN app No README data</tspan>
+<tspan x="10" y="3386">npm WARN app No license field.</tspan>
+<tspan x="10" y="3402"></tspan>
+<tspan x="10" y="3418">&gt; electron-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite/node_modules/electron-lite</tspan>
+<tspan x="10" y="3434">&gt; ./lib.electron.sh shNpmPostinstall</tspan>
+<tspan x="10" y="3450"></tspan>
+<tspan x="10" y="3466"></tspan>
+<tspan x="10" y="3482">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3498">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
+<tspan x="10" y="3514"></tspan>
+<tspan x="10" y="3530">grpc-lite@2016.12.1 /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3546">├── electron-lite@2016.12.1  (git://github.com/kaizhu256/node-electron-lite.git#4cb9fb2cc45a59e6\</tspan>
+<tspan x="10" y="3562">0d71c3f8f11070c6b36f3250)</tspan>
+<tspan x="10" y="3578">├── n@2.1.4 </tspan>
+<tspan x="10" y="3594">└── utility2@2016.12.3  (git://github.com/kaizhu256/node-utility2.git#b0576ad1cec23ab76bfb46a648\</tspan>
+<tspan x="10" y="3610">c66dae92ad5749)</tspan>
+<tspan x="10" y="3626"></tspan>
+<tspan x="10" y="3642">npm WARN enoent ENOENT: no such file or directory, open '/tmp/app/node_modules/grpc-lite/externa\</tspan>
+<tspan x="10" y="3658">l/package.json'</tspan>
+<tspan x="10" y="3674"></tspan>
+<tspan x="10" y="3690">&gt; grpc-lite@2016.12.1 test /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3706">&gt; rm -fr external &amp;&amp; npm run postinstall &amp;&amp; utility2 test test.js</tspan>
+<tspan x="10" y="3722"></tspan>
+<tspan x="10" y="3738"></tspan>
+<tspan x="10" y="3754">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3770">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
+<tspan x="10" y="3786"></tspan>
+<tspan x="10" y="3802"></tspan>
+<tspan x="10" y="3818">[MODE_BUILD=npmTestPublished] - 2016-12-28T18:20:32Z - npm-testing /tmp/app/node_modules/grpc-li\</tspan>
+<tspan x="10" y="3834">te</tspan>
+<tspan x="10" y="3850"></tspan>
+<tspan x="10" y="3866"></tspan>
+<tspan x="10" y="3882">covering $ /home/travis/.nvm/versions/node/v6.9.2/bin/node /tmp/app/node_modules/grpc-lite/test.\</tspan>
+<tspan x="10" y="3898">js</tspan>
+<tspan x="10" y="3914"></tspan>
+<tspan x="10" y="3930">-------------------------------------------------------</tspan>
+<tspan x="10" y="3946"></tspan>
+<tspan x="10" y="3962"></tspan>
+<tspan x="10" y="3978">created test-report file:///tmp/app/node_modules/grpc-lite/tmp/build/test-report.html</tspan>
+<tspan x="10" y="3994"></tspan>
+<tspan x="10" y="4010"></tspan>
+<tspan x="10" y="4026">npmTestPublished - 0 failed tests</tspan>
+</text>
+</svg>

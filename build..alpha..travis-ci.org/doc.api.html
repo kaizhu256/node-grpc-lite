@@ -1,0 +1,951 @@
+<style>
+.docApiDiv {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.docApiDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.docApiDiv a[href]:hover {
+    text-decoration: underline;
+}
+.docApiSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.docApiCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.docApiCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.docApiCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.docApiSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<div class="docApiDiv">
+<h1>api documentation
+    <a
+        
+        href="https://github.com/kaizhu256/node-grpc-lite#readme"
+        
+    >(grpc-lite v2016.12.1)</a>
+</h1>
+<div class="docApiSectionDiv"><a href="#"><h1>table of contents</h1></a><ul>
+
+    <li><a href="#module.grpc-lite">module grpc-lite</a><ol>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Metadata
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Server">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Server
+            <span class="docApiSignatureSpan">(options)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.ServerCredentials">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>ServerCredentials
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.getClientChannel">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>getClientChannel
+            <span class="docApiSignatureSpan">(client)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.load">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>load
+            <span class="docApiSignatureSpan">(filename,
+ format,
+ options)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.loadObject">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>loadObject
+            <span class="docApiSignatureSpan">(value,
+ options)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.makeGenericClientConstructor">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>makeGenericClientConstructor
+            <span class="docApiSignatureSpan">(methods,
+ serviceName,
+
+                                         class_options)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.setLogVerbosity">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>setLogVerbosity
+            <span class="docApiSignatureSpan">(verbosity)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.setLogger">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>setLogger
+            <span class="docApiSignatureSpan">(logger)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.waitForClientReady">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>waitForClientReady
+            <span class="docApiSignatureSpan">(client,
+ deadline,
+ callback)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>callError</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>credentials</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>logVerbosity</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>propagate</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>status</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>testRunBeforeDone</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>testRunBeforeTimer</span>
+        
+        </li>
+        
+        <li>
+            
+            <span class="docApiSignatureSpan">object <span class="docApiSignatureSpan">grpc-lite.</span>writeFlags</span>
+        
+        </li>
+        
+    </ol></li>
+
+    <li><a href="#module.grpc-lite.Metadata.prototype">module grpc-lite.Metadata.prototype</a><ol>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.prototype.add">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>add
+            <span class="docApiSignatureSpan">(key,
+ value)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.prototype.clone">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>clone
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.prototype.get">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>get
+            <span class="docApiSignatureSpan">(key)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.prototype.getMap">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>getMap
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.prototype.remove">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>remove
+            <span class="docApiSignatureSpan">(key)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.prototype.set">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>set
+            <span class="docApiSignatureSpan">(key,
+ value)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+
+    <li><a href="#module.grpc-lite.Server.prototype">module grpc-lite.Server.prototype</a><ol>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Server.prototype.addProtoService">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>addProtoService
+            <span class="docApiSignatureSpan">(service,
+ implementation)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Server.prototype.addService">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>addService
+            <span class="docApiSignatureSpan">(service,
+ implementation)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Server.prototype.bind">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>bind
+            <span class="docApiSignatureSpan">(port,
+ creds)</span>
+            </a>
+            
+        </li>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Server.prototype.register">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>register
+            <span class="docApiSignatureSpan">(name,
+ handler,
+ serialize,
+ deserialize,
+
+                                     type)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+
+    <li><a href="#module.grpc-lite.ServerCredentials.prototype">module grpc-lite.ServerCredentials.prototype</a><ol>
+        
+    </ol></li>
+
+</ul></div>
+    
+    <div class="docApiSectionDiv">
+    <h1><a href="#module.grpc-lite" id="module.grpc-lite">module grpc-lite</a></h1>
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata" id="element.grpc-lite.Metadata">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Metadata
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function Metadata() {
+  this._internal_repr = {};
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Server" id="element.grpc-lite.Server">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Server
+            <span class="docApiSignatureSpan">(options)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function Server(options) {
+  this.handlers = {};
+  var handlers = this.handlers;
+  var server = new grpc.Server(options);
+  this._server = server;
+  this.started = false;
+<span class="docApiCodeCommentSpan">  /**
+   * Start the server and begin handling requests
+   * @this Server
+   */
+</span>  this.start = function() {
+    if (this.started) {
+      throw new Error(&#x27;Server is already running&#x27;);
+    }
+    this.started = true;
+    server.start();
+    /**
+     * Handles the SERVER_RPC_NEW event. If there is a handler associated with
+     * the requested method, use that handler to respond to the request. Then
+     * wait for the next request
+     * @param {grpc.Event} event The event to handle with tag SERVER_RPC_NEW
+     */
+    function handleNewCall(err, event) {
+      if (err) {
+        return;
+      }
+      var details = event.new_call;
+      var call = details.call;
+      var method = details.method;
+      var metadata = Metadata._fromCoreRepresentation(details.metadata);
+      if (method === null) {
+        return;
+      }
+      server.requestCall(handleNewCall);
+      var handler;
+      if (handlers.hasOwnProperty(method)) {
+        handler = handlers[method];
+      } else {
+        var batch = {};
+        batch[grpc.opType.SEND_INITIAL_METADATA] =
+            (new Metadata())._getCoreRepresentation();
+        batch[grpc.opType.SEND_STATUS_FROM_SERVER] = {
+          code: grpc.status.UNIMPLEMENTED,
+          details: &#x27;&#x27;,
+          metadata: {}
+        };
+        batch[grpc.opType.RECV_CLOSE_ON_SERVER] = true;
+        call.startBatch(batch, function() {});
+        return;
+      }
+      streamHandlers[handler.type](call, handler, metadata);
+    }
+    server.requestCall(handleNewCall);
+  };
+
+  /**
+   * Gracefully shuts down the server. The server will stop receiving new calls,
+   * and any pending calls will complete. The callback will be called when all
+   * pending calls have completed and the server is fully shut down. This method
+   * is idempotent with itself and forceShutdown.
+   * @param {function()} callback The shutdown complete callback
+   */
+  this.tryShutdown = function(callback) {
+    server.tryShutdown(callback);
+  };
+
+  /**
+   * Forcibly shuts down the server. The server will stop receiving new calls
+   * and cancel all pending calls. When it returns, the server has shut down.
+   * This method is idempotent with itself and tryShutdown, and it will trigger
+   * any outstanding tryShutdown callbacks.
+   */
+  this.forceShutdown = function() {
+    server.forceShutdown();
+  };
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.ServerCredentials" id="element.grpc-lite.ServerCredentials">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>ServerCredentials
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function ServerCredentials() { [native code] }</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.getClientChannel" id="element.grpc-lite.getClientChannel">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>getClientChannel
+            <span class="docApiSignatureSpan">(client)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">getClientChannel = function (client) {
+  return client.$channel;
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.load" id="element.grpc-lite.load">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>load
+            <span class="docApiSignatureSpan">(filename,
+ format,
+ options)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function load(filename,
+ format,
+ options) {
+  if (!format) {
+    format = &#x27;proto&#x27;;
+  }
+  var convertFieldsToCamelCaseOriginal = ProtoBuf.convertFieldsToCamelCase;
+  if(options &amp;&amp; options.hasOwnProperty(&#x27;convertFieldsToCamelCase&#x27;)) {
+    ProtoBuf.convertFieldsToCamelCase = options.convertFieldsToCamelCase;
+  }
+  var builder;
+  try {
+    switch(format) {
+      case &#x27;proto&#x27;:
+      builder = ProtoBuf.loadProtoFile(filename);
+      break;
+      case &#x27;json&#x27;:
+      builder = ProtoBuf.loadJsonFile(filename);
+      break;
+      default:
+      throw new Error(&#x27;Unrecognized format &quot;&#x27; + format + &#x27;&quot;&#x27;);
+    }
+  } finally {
+    ProtoBuf.convertFieldsToCamelCase = convertFieldsToCamelCaseOriginal;
+  }
+  return loadObject(builder.ns, options);
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.loadObject" id="element.grpc-lite.loadObject">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>loadObject
+            <span class="docApiSignatureSpan">(value,
+ options)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function loadObject(value,
+ options) {
+  var result = {};
+  if (value.className === &#x27;Namespace&#x27;) {
+    _.each(value.children, function(child) {
+      result[child.name] = loadObject(child, options);
+    });
+    return result;
+  } else if (value.className === &#x27;Service&#x27;) {
+    return client.makeProtobufClientConstructor(value, options);
+  } else if (value.className === &#x27;Message&#x27; || value.className === &#x27;Enum&#x27;) {
+    return value.build();
+  } else {
+    return value;
+  }
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.makeGenericClientConstructor" id="element.grpc-lite.makeGenericClientConstructor">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>makeGenericClientConstructor
+            <span class="docApiSignatureSpan">(methods,
+ serviceName,
+
+                                         class_options)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">makeGenericClientConstructor = function (methods,
+ serviceName,
+
+                                         class_options) {
+  if (!class_options) {
+    class_options = {};
+  }
+<span class="docApiCodeCommentSpan">  /**
+   * Create a client with the given methods
+   * @constructor
+   * @param {string} address The address of the server to connect to
+   * @param {grpc.Credentials} credentials Credentials to use to connect
+   *     to the server
+   * @param {Object} options Options to pass to the underlying channel
+   */
+</span>  function Client(address, credentials, options) {
+    if (!options) {
+      options = {};
+    }
+    /* Append the grpc-node user agent string after the application user agent
+     * string, and put the combination at the beginning of the user agent string
+     */
+    if (options[&#x27;grpc.primary_user_agent&#x27;]) {
+      options[&#x27;grpc.primary_user_agent&#x27;] += &#x27; &#x27;;
+    } else {
+      options[&#x27;grpc.primary_user_agent&#x27;] = &#x27;&#x27;;
+    }
+    options[&#x27;grpc.primary_user_agent&#x27;] += &#x27;grpc-node/&#x27; + version;
+    /* Private fields use $ as a prefix instead of _ because it is an invalid
+     * prefix of a method name */
+    this.$channel = new grpc.Channel(address, credentials, options);
+  }
+
+  _.each(methods, function(attrs, name) {
+    var method_type;
+    if (_.startsWith(name, &#x27;$&#x27;)) {
+      throw new Error(&#x27;Method names cannot start with $&#x27;);
+    }
+    if (attrs.requestStream) {
+      if (attrs.responseStream) {
+        method_type = &#x27;bidi&#x27;;
+      } else {
+        method_type = &#x27;client_stream&#x27;;
+      }
+    } else {
+      if (attrs.responseStream) {
+        method_type = &#x27;server_stream&#x27;;
+      } else {
+        method_type = &#x27;unary&#x27;;
+      }
+    }
+    var serialize = attrs.requestSerialize;
+    var deserialize = attrs.responseDeserialize;
+    var method_func = requester_makers[method_type](
+        attrs.path, serialize, deserialize);
+    if (class_options.deprecatedArgumentOrder) {
+      Client.prototype[name] = deprecated_request_wrap(method_func);
+    } else {
+      Client.prototype[name] = method_func;
+    }
+    // Associate all provided attributes with the method
+    _.assign(Client.prototype[name], attrs);
+  });
+
+  return Client;
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.setLogVerbosity" id="element.grpc-lite.setLogVerbosity">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>setLogVerbosity
+            <span class="docApiSignatureSpan">(verbosity)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function setLogVerbosity(verbosity) {
+  common.logVerbosity = verbosity;
+  grpc.setLogVerbosity(verbosity);
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.setLogger" id="element.grpc-lite.setLogger">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>setLogger
+            <span class="docApiSignatureSpan">(logger)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function setLogger(logger) {
+  common.logger = logger;
+  grpc.setDefaultLoggerCallback(function(file, line, severity,
+                                         message, timestamp) {
+    logger.error(log_template({
+      file: path.basename(file),
+      line: line,
+      severity: severity,
+      message: message,
+      timestamp: timestamp.toISOString()
+    }));
+  });
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.waitForClientReady" id="element.grpc-lite.waitForClientReady">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>waitForClientReady
+            <span class="docApiSignatureSpan">(client,
+ deadline,
+ callback)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">waitForClientReady = function (client,
+ deadline,
+ callback) {
+  var checkState = function(err) {
+    if (err) {
+      callback(new Error(&#x27;Failed to connect before the deadline&#x27;));
+      return;
+    }
+    var new_state = client.$channel.getConnectivityState(true);
+    if (new_state === grpc.connectivityState.READY) {
+      callback();
+    } else if (new_state === grpc.connectivityState.FATAL_FAILURE) {
+      callback(new Error(&#x27;Failed to connect to server&#x27;));
+    } else {
+      client.$channel.watchConnectivityState(new_state, deadline, checkState);
+    }
+  };
+  checkState();
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </div>
+    
+    <div class="docApiSectionDiv">
+    <h1><a href="#module.grpc-lite.Metadata.prototype" id="module.grpc-lite.Metadata.prototype">module grpc-lite.Metadata.prototype</a></h1>
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.prototype.add" id="element.grpc-lite.Metadata.prototype.add">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>add
+            <span class="docApiSignatureSpan">(key,
+ value)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">add = function (key,
+ value) {
+  key = normalizeKey(key);
+  validate(key, value);
+  if (!this._internal_repr[key]) {
+    this._internal_repr[key] = [];
+  }
+  this._internal_repr[key].push(value);
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.prototype.clone" id="element.grpc-lite.Metadata.prototype.clone">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>clone
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">clone = function () {
+  var copy = new Metadata();
+  _.forOwn(this._internal_repr, function(value, key) {
+    copy._internal_repr[key] = _.clone(value);
+  });
+  return copy;
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.prototype.get" id="element.grpc-lite.Metadata.prototype.get">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>get
+            <span class="docApiSignatureSpan">(key)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">get = function (key) {
+  key = normalizeKey(key);
+  if (Object.prototype.hasOwnProperty.call(this._internal_repr, key)) {
+    return this._internal_repr[key];
+  } else {
+    return [];
+  }
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.prototype.getMap" id="element.grpc-lite.Metadata.prototype.getMap">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>getMap
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">getMap = function () {
+  var result = {};
+  _.forOwn(this._internal_repr, function(values, key) {
+    if(values.length &gt; 0) {
+      result[key] = values[0];
+    }
+  });
+  return result;
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.prototype.remove" id="element.grpc-lite.Metadata.prototype.remove">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>remove
+            <span class="docApiSignatureSpan">(key)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">remove = function (key) {
+  key = normalizeKey(key);
+  if (Object.prototype.hasOwnProperty.call(this._internal_repr, key)) {
+    delete this._internal_repr[key];
+  }
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.prototype.set" id="element.grpc-lite.Metadata.prototype.set">
+            function <span class="docApiSignatureSpan">grpc-lite.Metadata.prototype.</span>set
+            <span class="docApiSignatureSpan">(key,
+ value)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">set = function (key,
+ value) {
+  key = normalizeKey(key);
+  validate(key, value);
+  this._internal_repr[key] = [value];
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+    </div>
+    
+    <div class="docApiSectionDiv">
+    <h1><a href="#module.grpc-lite.Server.prototype" id="module.grpc-lite.Server.prototype">module grpc-lite.Server.prototype</a></h1>
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Server.prototype.addProtoService" id="element.grpc-lite.Server.prototype.addProtoService">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>addProtoService
+            <span class="docApiSignatureSpan">(service,
+ implementation)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">addProtoService = function (service,
+ implementation) {
+  var options;
+  if (service.grpc_options) {
+    options = service.grpc_options;
+  }
+  this.addService(common.getProtobufServiceAttrs(service, options),
+                  implementation);
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Server.prototype.addService" id="element.grpc-lite.Server.prototype.addService">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>addService
+            <span class="docApiSignatureSpan">(service,
+ implementation)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">addService = function (service,
+ implementation) {
+  if (this.started) {
+    throw new Error(&#x27;Can\&#x27;t add a service to a started server.&#x27;);
+  }
+  var self = this;
+  _.each(service, function(attrs, name) {
+    var method_type;
+    if (attrs.requestStream) {
+      if (attrs.responseStream) {
+        method_type = &#x27;bidi&#x27;;
+      } else {
+        method_type = &#x27;client_stream&#x27;;
+      }
+    } else {
+      if (attrs.responseStream) {
+        method_type = &#x27;server_stream&#x27;;
+      } else {
+        method_type = &#x27;unary&#x27;;
+      }
+    }
+    var impl;
+    if (implementation[name] === undefined) {
+      common.log(grpc.logVerbosity.ERROR, &#x27;Method handler for &#x27; +
+          attrs.path + &#x27; expected but not provided&#x27;);
+      impl = defaultHandler[method_type];
+    } else {
+      impl = _.bind(implementation[name], implementation);
+    }
+    var serialize = attrs.responseSerialize;
+    var deserialize = attrs.requestDeserialize;
+    var register_success = self.register(attrs.path, impl, serialize,
+                                         deserialize, method_type);
+    if (!register_success) {
+      throw new Error(&#x27;Method handler for &#x27; + attrs.path +
+          &#x27; already provided.&#x27;);
+    }
+  });
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Server.prototype.bind" id="element.grpc-lite.Server.prototype.bind">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>bind
+            <span class="docApiSignatureSpan">(port,
+ creds)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">bind = function (port,
+ creds) {
+  if (this.started) {
+    throw new Error(&#x27;Can\&#x27;t bind an already running server to an address&#x27;);
+  }
+  return this._server.addHttp2Port(port, creds);
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Server.prototype.register" id="element.grpc-lite.Server.prototype.register">
+            function <span class="docApiSignatureSpan">grpc-lite.Server.prototype.</span>register
+            <span class="docApiSignatureSpan">(name,
+ handler,
+ serialize,
+ deserialize,
+
+                                     type)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">register = function (name,
+ handler,
+ serialize,
+ deserialize,
+
+                                     type) {
+  if (this.handlers.hasOwnProperty(name)) {
+    return false;
+  }
+  this.handlers[name] = {
+    func: handler,
+    serialize: serialize,
+    deserialize: deserialize,
+    type: type
+  };
+  return true;
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+    </div>
+    
+    <div class="docApiSectionDiv">
+    <h1><a href="#module.grpc-lite.ServerCredentials.prototype" id="module.grpc-lite.ServerCredentials.prototype">module grpc-lite.ServerCredentials.prototype</a></h1>
+        
+    </div>
+    
+</div>
