@@ -1,8 +1,8 @@
-<svg height="4046" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="4046" fill="#555" width="720"></rect>
+<svg height="4062" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="4062" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
-<tspan x="10" y="42">[MODE_BUILD=npmTestPublished] - 2016-12-28T18:29:56Z - npm-testing published-package grpc-lite</tspan>
+<tspan x="10" y="42">[MODE_BUILD=npmTestPublished] - 2016-12-28T19:28:22Z - npm-testing published-package grpc-lite</tspan>
 <tspan x="10" y="58"></tspan>
 <tspan x="10" y="74"></tspan>
 <tspan x="10" y="90">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
@@ -213,44 +213,45 @@
 <tspan x="10" y="3370">npm WARN app No README data</tspan>
 <tspan x="10" y="3386">npm WARN app No license field.</tspan>
 <tspan x="10" y="3402"></tspan>
-<tspan x="10" y="3418">&gt; electron-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite/node_modules/electron-lite</tspan>
-<tspan x="10" y="3434">&gt; ./lib.electron.sh shNpmPostinstall</tspan>
-<tspan x="10" y="3450"></tspan>
+<tspan x="10" y="3418">&gt; electron-lite@2016.12.28 postinstall /tmp/app/node_modules/grpc-lite/node_modules/electron-lit\</tspan>
+<tspan x="10" y="3434">e</tspan>
+<tspan x="10" y="3450">&gt; ./lib.electron.sh shNpmPostinstall</tspan>
 <tspan x="10" y="3466"></tspan>
-<tspan x="10" y="3482">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
-<tspan x="10" y="3498">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
-<tspan x="10" y="3514"></tspan>
-<tspan x="10" y="3530">grpc-lite@2016.12.1 /tmp/app/node_modules/grpc-lite</tspan>
-<tspan x="10" y="3546">├── electron-lite@2016.12.1  (git://github.com/kaizhu256/node-electron-lite.git#4cb9fb2cc45a59e6\</tspan>
-<tspan x="10" y="3562">0d71c3f8f11070c6b36f3250)</tspan>
-<tspan x="10" y="3578">├── n@2.1.4 </tspan>
-<tspan x="10" y="3594">└── utility2@2016.12.3  (git://github.com/kaizhu256/node-utility2.git#b0576ad1cec23ab76bfb46a648\</tspan>
-<tspan x="10" y="3610">c66dae92ad5749)</tspan>
-<tspan x="10" y="3626"></tspan>
-<tspan x="10" y="3642">npm WARN enoent ENOENT: no such file or directory, open '/tmp/app/node_modules/grpc-lite/externa\</tspan>
-<tspan x="10" y="3658">l/package.json'</tspan>
-<tspan x="10" y="3674"></tspan>
-<tspan x="10" y="3690">&gt; grpc-lite@2016.12.1 test /tmp/app/node_modules/grpc-lite</tspan>
-<tspan x="10" y="3706">&gt; rm -fr external &amp;&amp; npm run postinstall &amp;&amp; utility2 test test.js</tspan>
-<tspan x="10" y="3722"></tspan>
+<tspan x="10" y="3482"></tspan>
+<tspan x="10" y="3498">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3514">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
+<tspan x="10" y="3530"></tspan>
+<tspan x="10" y="3546">grpc-lite@2016.12.1 /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3562">├── electron-lite@2016.12.28  (git://github.com/kaizhu256/node-electron-lite.git#dd36d35824717bf\</tspan>
+<tspan x="10" y="3578">3fd342e42e0249a0dd5f6f4c1)</tspan>
+<tspan x="10" y="3594">├── n@2.1.4 </tspan>
+<tspan x="10" y="3610">└── utility2@2016.12.3  (git://github.com/kaizhu256/node-utility2.git#25cc3579e42b447ec3f3d038fa\</tspan>
+<tspan x="10" y="3626">5606d36dc10653)</tspan>
+<tspan x="10" y="3642"></tspan>
+<tspan x="10" y="3658">npm WARN enoent ENOENT: no such file or directory, open '/tmp/app/node_modules/grpc-lite/externa\</tspan>
+<tspan x="10" y="3674">l/package.json'</tspan>
+<tspan x="10" y="3690"></tspan>
+<tspan x="10" y="3706">&gt; grpc-lite@2016.12.1 test /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3722">&gt; rm -fr external &amp;&amp; npm run postinstall &amp;&amp; utility2 test test.js</tspan>
 <tspan x="10" y="3738"></tspan>
-<tspan x="10" y="3754">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
-<tspan x="10" y="3770">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
-<tspan x="10" y="3786"></tspan>
+<tspan x="10" y="3754"></tspan>
+<tspan x="10" y="3770">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
+<tspan x="10" y="3786">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
 <tspan x="10" y="3802"></tspan>
-<tspan x="10" y="3818">[MODE_BUILD=npmTestPublished] - 2016-12-28T18:30:22Z - npm-testing /tmp/app/node_modules/grpc-li\</tspan>
-<tspan x="10" y="3834">te</tspan>
-<tspan x="10" y="3850"></tspan>
+<tspan x="10" y="3818"></tspan>
+<tspan x="10" y="3834">[MODE_BUILD=npmTestPublished] - 2016-12-28T19:28:48Z - npm-testing /tmp/app/node_modules/grpc-li\</tspan>
+<tspan x="10" y="3850">te</tspan>
 <tspan x="10" y="3866"></tspan>
-<tspan x="10" y="3882">covering $ /home/travis/.nvm/versions/node/v6.9.2/bin/node /tmp/app/node_modules/grpc-lite/test.\</tspan>
-<tspan x="10" y="3898">js</tspan>
-<tspan x="10" y="3914"></tspan>
-<tspan x="10" y="3930">-------------------------------------------------------</tspan>
-<tspan x="10" y="3946"></tspan>
+<tspan x="10" y="3882"></tspan>
+<tspan x="10" y="3898">covering $ /home/travis/.nvm/versions/node/v6.9.2/bin/node /tmp/app/node_modules/grpc-lite/test.\</tspan>
+<tspan x="10" y="3914">js</tspan>
+<tspan x="10" y="3930"></tspan>
+<tspan x="10" y="3946">-------------------------------------------------------</tspan>
 <tspan x="10" y="3962"></tspan>
-<tspan x="10" y="3978">created test-report file:///tmp/app/node_modules/grpc-lite/tmp/build/test-report.html</tspan>
-<tspan x="10" y="3994"></tspan>
+<tspan x="10" y="3978"></tspan>
+<tspan x="10" y="3994">created test-report file:///tmp/app/node_modules/grpc-lite/tmp/build/test-report.html</tspan>
 <tspan x="10" y="4010"></tspan>
-<tspan x="10" y="4026">npmTestPublished - 0 failed tests</tspan>
+<tspan x="10" y="4026"></tspan>
+<tspan x="10" y="4042">npmTestPublished - 0 failed tests</tspan>
 </text>
 </svg>

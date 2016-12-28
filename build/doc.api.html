@@ -41,7 +41,7 @@
         
         href="https://github.com/kaizhu256/node-grpc-lite#readme"
         
-    >(grpc-lite v2016.12.1)</a>
+    >(grpc-lite v2016.12.2)</a>
 </h1>
 <div class="docApiSectionDiv"><a href="#"><h1>table of contents</h1></a><ul>
 
@@ -195,6 +195,19 @@
         
     </ol></li>
 
+    <li><a href="#module.grpc-lite.Metadata">module grpc-lite.Metadata</a><ol>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Metadata.Metadata">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Metadata
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+
     <li><a href="#module.grpc-lite.Metadata.prototype">module grpc-lite.Metadata.prototype</a><ol>
         
         <li>
@@ -255,6 +268,19 @@
         
     </ol></li>
 
+    <li><a href="#module.grpc-lite.Server">module grpc-lite.Server</a><ol>
+        
+        <li>
+            
+            <a class="docApiElementLiA" href="#element.grpc-lite.Server.Server">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Server
+            <span class="docApiSignatureSpan">(options)</span>
+            </a>
+            
+        </li>
+        
+    </ol></li>
+
     <li><a href="#module.grpc-lite.Server.prototype">module grpc-lite.Server.prototype</a><ol>
         
         <li>
@@ -300,10 +326,6 @@
             </a>
             
         </li>
-        
-    </ol></li>
-
-    <li><a href="#module.grpc-lite.ServerCredentials.prototype">module grpc-lite.ServerCredentials.prototype</a><ol>
         
     </ol></li>
 
@@ -687,6 +709,26 @@
     </div>
     
     <div class="docApiSectionDiv">
+    <h1><a href="#module.grpc-lite.Metadata" id="module.grpc-lite.Metadata">module grpc-lite.Metadata</a></h1>
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Metadata.Metadata" id="element.grpc-lite.Metadata.Metadata">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Metadata
+            <span class="docApiSignatureSpan">()</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function Metadata() {
+  this._internal_repr = {};
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+    </div>
+    
+    <div class="docApiSectionDiv">
     <h1><a href="#module.grpc-lite.Metadata.prototype" id="module.grpc-lite.Metadata.prototype">module grpc-lite.Metadata.prototype</a></h1>
         
         
@@ -803,6 +845,99 @@
   key = normalizeKey(key);
   validate(key, value);
   this._internal_repr[key] = [value];
+}</pre></li>
+        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        </ul>
+        
+        
+    </div>
+    
+    <div class="docApiSectionDiv">
+    <h1><a href="#module.grpc-lite.Server" id="module.grpc-lite.Server">module grpc-lite.Server</a></h1>
+        
+        
+        <h2>
+            <a href="#element.grpc-lite.Server.Server" id="element.grpc-lite.Server.Server">
+            function <span class="docApiSignatureSpan">grpc-lite.</span>Server
+            <span class="docApiSignatureSpan">(options)</span>
+            </a>
+        </h2>
+        <ul>
+        <li>description and source code<pre class="docApiCodePre">function Server(options) {
+  this.handlers = {};
+  var handlers = this.handlers;
+  var server = new grpc.Server(options);
+  this._server = server;
+  this.started = false;
+<span class="docApiCodeCommentSpan">  /**
+   * Start the server and begin handling requests
+   * @this Server
+   */
+</span>  this.start = function() {
+    if (this.started) {
+      throw new Error(&#x27;Server is already running&#x27;);
+    }
+    this.started = true;
+    server.start();
+    /**
+     * Handles the SERVER_RPC_NEW event. If there is a handler associated with
+     * the requested method, use that handler to respond to the request. Then
+     * wait for the next request
+     * @param {grpc.Event} event The event to handle with tag SERVER_RPC_NEW
+     */
+    function handleNewCall(err, event) {
+      if (err) {
+        return;
+      }
+      var details = event.new_call;
+      var call = details.call;
+      var method = details.method;
+      var metadata = Metadata._fromCoreRepresentation(details.metadata);
+      if (method === null) {
+        return;
+      }
+      server.requestCall(handleNewCall);
+      var handler;
+      if (handlers.hasOwnProperty(method)) {
+        handler = handlers[method];
+      } else {
+        var batch = {};
+        batch[grpc.opType.SEND_INITIAL_METADATA] =
+            (new Metadata())._getCoreRepresentation();
+        batch[grpc.opType.SEND_STATUS_FROM_SERVER] = {
+          code: grpc.status.UNIMPLEMENTED,
+          details: &#x27;&#x27;,
+          metadata: {}
+        };
+        batch[grpc.opType.RECV_CLOSE_ON_SERVER] = true;
+        call.startBatch(batch, function() {});
+        return;
+      }
+      streamHandlers[handler.type](call, handler, metadata);
+    }
+    server.requestCall(handleNewCall);
+  };
+
+  /**
+   * Gracefully shuts down the server. The server will stop receiving new calls,
+   * and any pending calls will complete. The callback will be called when all
+   * pending calls have completed and the server is fully shut down. This method
+   * is idempotent with itself and forceShutdown.
+   * @param {function()} callback The shutdown complete callback
+   */
+  this.tryShutdown = function(callback) {
+    server.tryShutdown(callback);
+  };
+
+  /**
+   * Forcibly shuts down the server. The server will stop receiving new calls
+   * and cancel all pending calls. When it returns, the server has shut down.
+   * This method is idempotent with itself and tryShutdown, and it will trigger
+   * any outstanding tryShutdown callbacks.
+   */
+  this.forceShutdown = function() {
+    server.forceShutdown();
+  };
 }</pre></li>
         <li>example usage<pre class="docApiCodePre">n/a</pre></li>
         </ul>
@@ -940,11 +1075,6 @@
         <li>example usage<pre class="docApiCodePre">n/a</pre></li>
         </ul>
         
-        
-    </div>
-    
-    <div class="docApiSectionDiv">
-    <h1><a href="#module.grpc-lite.ServerCredentials.prototype" id="module.grpc-lite.ServerCredentials.prototype">module grpc-lite.ServerCredentials.prototype</a></h1>
         
     </div>
     
