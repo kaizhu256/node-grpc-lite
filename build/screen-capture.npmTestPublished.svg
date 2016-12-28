@@ -2,7 +2,7 @@
 <rect height="4062" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
-<tspan x="10" y="42">[MODE_BUILD=npmTestPublished] - 2016-12-28T19:28:22Z - npm-testing published-package grpc-lite</tspan>
+<tspan x="10" y="42">[MODE_BUILD=npmTestPublished] - 2016-12-28T19:36:10Z - npm-testing published-package grpc-lite</tspan>
 <tspan x="10" y="58"></tspan>
 <tspan x="10" y="74"></tspan>
 <tspan x="10" y="90">&gt; grpc-lite@2016.12.1 postinstall /tmp/app/node_modules/grpc-lite</tspan>
@@ -239,7 +239,7 @@
 <tspan x="10" y="3786">&gt; ./lib.grpc.sh shNpmPostinstall</tspan>
 <tspan x="10" y="3802"></tspan>
 <tspan x="10" y="3818"></tspan>
-<tspan x="10" y="3834">[MODE_BUILD=npmTestPublished] - 2016-12-28T19:28:48Z - npm-testing /tmp/app/node_modules/grpc-li\</tspan>
+<tspan x="10" y="3834">[MODE_BUILD=npmTestPublished] - 2016-12-28T19:36:41Z - npm-testing /tmp/app/node_modules/grpc-li\</tspan>
 <tspan x="10" y="3850">te</tspan>
 <tspan x="10" y="3866"></tspan>
 <tspan x="10" y="3882"></tspan>

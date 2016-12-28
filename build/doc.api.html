@@ -345,7 +345,23 @@
         <li>description and source code<pre class="docApiCodePre">function Metadata() {
   this._internal_repr = {};
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+ */
+function makeUnaryRequest(argument, metadata, options, callback) {
+  /* jshint validthis: true */
+  /* While the arguments are listed in the function signature, those variables
+   * are not used directly. Instead, ArgueJS processes the arguments
+   * object. This allows for simple handling of optional arguments in the
+   * middle of the argument list, and also provides type checking. */
+  var args = arguejs({argument: null, metadata: [Metadata, new <span class="docApiCodeKeywordSpan">Metadata</span>()],
+                      options: [Object], callback: Function}, arguments);
+  var emitter = new EventEmitter();
+  var call = getCall(this.$channel, method, args.options);
+  metadata = args.metadata.clone();
+  emitter.cancel = function cancel() {
+    call.cancel();
+  };
+...</pre></li>
         </ul>
         
         
@@ -433,7 +449,22 @@
     server.forceShutdown();
   };
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+* Server module
+*
+* This module contains all the server code for Node gRPC: both the Server
+* class itself and the method handler code for all types of methods.
+*
+* For example, to create a Server, add a service, and start it:
+*
+* var server = new server_module.<span class="docApiCodeKeywordSpan">Server</span>();
+* server.addProtoService(protobuf_service_descriptor, service_implementation);
+* server.bind(&#x27;address:port&#x27;, server_credential);
+* server.start();
+*
+* @module
+*/
+...</pre></li>
         </ul>
         
         
@@ -502,7 +533,22 @@
   }
   return loadObject(builder.ns, options);
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+* Client module
+*
+* This module contains the factory method for creating Client classes, and the
+* method calling code for all types of methods.
+*
+* For example, to create a client and call a method on it:
+*
+* var proto_obj = grpc.<span class="docApiCodeKeywordSpan">load</span>(proto_file_path);
+* var Client = proto_obj.package.subpackage.ServiceName;
+* var client = new Client(server_address, client_credentials);
+* var call = client.unaryMethod(arguments, callback);
+*
+* @module
+*/
+...</pre></li>
         </ul>
         
         
@@ -628,7 +674,22 @@
   common.logVerbosity = verbosity;
   grpc.setLogVerbosity(verbosity);
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+/**
+ * Sets the logger verbosity for gRPC module logging. The options are members
+ * of the grpc.logVerbosity map.
+ * @param {Number} verbosity The minimum severity to log
+ */
+exports.setLogVerbosity = function setLogVerbosity(verbosity) {
+  common.logVerbosity = verbosity;
+  grpc.<span class="docApiCodeKeywordSpan">setLogVerbosity</span>(verbosity);
+};
+
+/**
+ * @see module:src/server.Server
+ */
+exports.Server = server.Server;
+...</pre></li>
         </ul>
         
         
@@ -722,7 +783,23 @@
         <li>description and source code<pre class="docApiCodePre">function Metadata() {
   this._internal_repr = {};
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+ */
+function makeUnaryRequest(argument, metadata, options, callback) {
+  /* jshint validthis: true */
+  /* While the arguments are listed in the function signature, those variables
+   * are not used directly. Instead, ArgueJS processes the arguments
+   * object. This allows for simple handling of optional arguments in the
+   * middle of the argument list, and also provides type checking. */
+  var args = arguejs({argument: null, metadata: [Metadata, new <span class="docApiCodeKeywordSpan">Metadata</span>()],
+                      options: [Object], callback: Function}, arguments);
+  var emitter = new EventEmitter();
+  var call = getCall(this.$channel, method, args.options);
+  metadata = args.metadata.clone();
+  emitter.cancel = function cancel() {
+    call.cancel();
+  };
+...</pre></li>
         </ul>
         
         
@@ -768,7 +845,23 @@
   });
   return copy;
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+ * are not used directly. Instead, ArgueJS processes the arguments
+ * object. This allows for simple handling of optional arguments in the
+ * middle of the argument list, and also provides type checking. */
+var args = arguejs({argument: null, metadata: [Metadata, new Metadata()],
+                    options: [Object], callback: Function}, arguments);
+var emitter = new EventEmitter();
+var call = getCall(this.$channel, method, args.options);
+metadata = args.metadata.<span class="docApiCodeKeywordSpan">clone</span>();
+emitter.cancel = function cancel() {
+  call.cancel();
+};
+emitter.getPeer = function getPeer() {
+  return call.getPeer();
+};
+var client_batch = {};
+...</pre></li>
         </ul>
         
         
@@ -788,7 +881,23 @@
     return [];
   }
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+var host;
+var parent;
+var propagate_flags;
+var credentials;
+if (options) {
+  deadline = options.deadline;
+  host = options.host;
+  parent = _.<span class="docApiCodeKeywordSpan">get</span>(options, &#x27;parent.call&#x27;);
+  propagate_flags = options.propagate_flags;
+  credentials = options.credentials;
+}
+if (deadline === undefined) {
+  deadline = Infinity;
+}
+var call = new grpc.Call(channel, method, deadline, host,
+...</pre></li>
         </ul>
         
         
@@ -939,7 +1048,22 @@
     server.forceShutdown();
   };
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+* Server module
+*
+* This module contains all the server code for Node gRPC: both the Server
+* class itself and the method handler code for all types of methods.
+*
+* For example, to create a Server, add a service, and start it:
+*
+* var server = new server_module.<span class="docApiCodeKeywordSpan">Server</span>();
+* server.addProtoService(protobuf_service_descriptor, service_implementation);
+* server.bind(&#x27;address:port&#x27;, server_credential);
+* server.start();
+*
+* @module
+*/
+...</pre></li>
         </ul>
         
         
@@ -966,7 +1090,23 @@
   this.addService(common.getProtobufServiceAttrs(service, options),
                   implementation);
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+ *
+ * This module contains all the server code for Node gRPC: both the Server
+ * class itself and the method handler code for all types of methods.
+ *
+ * For example, to create a Server, add a service, and start it:
+ *
+ * var server = new server_module.Server();
+ * server.<span class="docApiCodeKeywordSpan">addProtoService</span>(protobuf_service_descriptor, service_implementation);
+ * server.bind(&#x27;address:port&#x27;, server_credential);
+ * server.start();
+ *
+ * @module
+ */
+
+&#x27;use strict&#x27;;
+...</pre></li>
         </ul>
         
         
@@ -1018,7 +1158,23 @@
     }
   });
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+*     method implementation for the provided service.
+*/
+Server.prototype.addProtoService = function(service, implementation) {
+ var options;
+ if (service.grpc_options) {
+   options = service.grpc_options;
+ }
+ this.<span class="docApiCodeKeywordSpan">addService</span>(common.getProtobufServiceAttrs(service, options),
+                 implementation);
+};
+
+/**
+* Binds the server to the given port, with SSL enabled if creds is given
+* @param {string} port The port that the server should bind on, in the format
+*     &quot;address:port&quot;
+...</pre></li>
         </ul>
         
         
@@ -1038,7 +1194,22 @@
   }
   return this._server.addHttp2Port(port, creds);
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+ * This module contains all the server code for Node gRPC: both the Server
+ * class itself and the method handler code for all types of methods.
+ *
+ * For example, to create a Server, add a service, and start it:
+ *
+ * var server = new server_module.Server();
+ * server.addProtoService(protobuf_service_descriptor, service_implementation);
+ * server.<span class="docApiCodeKeywordSpan">bind</span>(&#x27;address:port&#x27;, server_credential);
+ * server.start();
+ *
+ * @module
+ */
+
+&#x27;use strict&#x27;;
+...</pre></li>
         </ul>
         
         
@@ -1072,7 +1243,23 @@
   };
   return true;
 }</pre></li>
-        <li>example usage<pre class="docApiCodePre">n/a</pre></li>
+        <li>example usage<pre class="docApiCodePre">...
+          attrs.path + &#x27; expected but not provided&#x27;);
+      impl = defaultHandler[method_type];
+    } else {
+      impl = _.bind(implementation[name], implementation);
+    }
+    var serialize = attrs.responseSerialize;
+    var deserialize = attrs.requestDeserialize;
+    var register_success = self.<span class="docApiCodeKeywordSpan">register</span>(attrs.path, impl, serialize,
+                                         deserialize, method_type);
+    if (!register_success) {
+      throw new Error(&#x27;Method handler for &#x27; + attrs.path +
+          &#x27; already provided.&#x27;);
+    }
+  });
+};
+...</pre></li>
         </ul>
         
         
