@@ -1,0 +1,33 @@
+{
+    "package.json": true,
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "this zero-dependency package will download and install grpc v1.0.1 prebuilt-binaries from https://github.com/kaizhu256/node-grpc-lite",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "n": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "keywords": [
+        "api",
+        "grpc",
+        "light", "lightweight", "lite",
+        "protobuf"
+    ],
+    "license": "MIT",
+    "main": "lib.grpc",
+    "name": "grpc-lite",
+    "os": ["darwin", "linux"],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kaizhu256/node-grpc-lite.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shRun shReadmeBuild",
+        "postinstall": "./lib.grpc.sh shNpmPostinstall",
+        "test": "rm -fr external && npm run postinstall && utility2 test test.js"
+
+
+
+    },
+    "version": "2016.12.1"
+}
