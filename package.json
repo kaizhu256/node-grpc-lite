@@ -7,6 +7,7 @@
         "n": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
+    "engines": { "node": ">=4 <7" },
     "keywords": [
         "api",
         "grpc",
@@ -24,10 +25,10 @@
     "scripts": {
         "build-ci": "utility2 shRun shReadmeBuild",
         "postinstall": "./lib.grpc.sh shNpmPostinstall",
-        "test": "rm -fr external && npm run postinstall && utility2 test test.js"
+        "test": "rm -fr external /tmp/grpc_node-* && npm run postinstall && export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
 
 
 
     },
-    "version": "2016.12.1"
+    "version": "2016.12.2"
 }

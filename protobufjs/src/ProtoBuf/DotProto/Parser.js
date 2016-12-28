@@ -50,8 +50,7 @@ ParserPrototype.parse = function() {
         // "syntax": undefined
     };
     var token,
-        head = true,
-        weak;
+        head = true;
     try {
         while (token = this.tn.next()) {
             switch (token) {
@@ -68,12 +67,11 @@ ParserPrototype.parse = function() {
                     if (!head)
                         throw Error("unexpected 'import'");
                     token = this.tn.peek();
-                    if (token === "public" || (weak = token === "weak")) // token ignored
+                    if (token === "public") // ignored
                         this.tn.next();
                     token = this._readString();
                     this.tn.skip(";");
-                    if (!weak) // import ignored
-                        topLevel["imports"].push(token);
+                    topLevel["imports"].push(token);
                     break;
                 case 'syntax':
                     if (!head)
@@ -428,11 +426,11 @@ ParserPrototype._parseMessage = function(parent, fld) {
         else if (token === "service")
             this._parseService(msg);
         else if (token === "extensions")
-            msg["extensions"] = this._parseExtensionRanges();
-        else if (token === "reserved")
-            this._parseIgnored(); // TODO
+            this._parseExtensions(msg);
         else if (token === "extend")
             this._parseExtend(msg);
+        else if (token === "reserved")
+            this._parseMessageReserved(msg);
         else if (Lang.TYPEREF.test(token)) {
             if (!this.proto3)
                 throw Error("illegal field rule: "+token);
@@ -446,10 +444,17 @@ ParserPrototype._parseMessage = function(parent, fld) {
 };
 
 /**
- * Parses an ignored statement.
+ * Parses a message's reserved ids / names statement.
+ * @param {!Object} msg Message definition
  * @private
  */
-ParserPrototype._parseIgnored = function() {
+ParserPrototype._parseMessageReserved = function(msg) {
+    // TODO: This currently just skips a reserved statement for compatibility.
+    // Valid formats are
+    //   reserved 2, 15, 9 to 11;
+    // for reserved ids or
+    //   reserved "foo", "bar";
+    // for reserved names.
     while (this.tn.peek() !== ';')
         this.tn.next();
     this.tn.skip(";");
@@ -617,43 +622,29 @@ ParserPrototype._parseEnum = function(msg) {
 };
 
 /**
- * Parses extension / reserved ranges.
- * @returns {!Array.<!Array.<number>>}
+ * Parses an extensions statement.
+ * @param {!Object} msg Message object
  * @private
  */
-ParserPrototype._parseExtensionRanges = function() {
-    var ranges = [];
-    var token,
-        range,
-        value;
-    do {
+ParserPrototype._parseExtensions = function(msg) {
+    var token = this.tn.next(),
         range = [];
-        while (true) {
-            token = this.tn.next();
-            switch (token) {
-                case "min":
-                    value = ProtoBuf.ID_MIN;
-                    break;
-                case "max":
-                    value = ProtoBuf.ID_MAX;
-                    break;
-                default:
-                    value = mkNumber(token);
-                    break;
-            }
-            range.push(value);
-            if (range.length === 2)
-                break;
-            if (this.tn.peek() !== "to") {
-                range.push(value);
-                break;
-            }
-            this.tn.next();
-        }
-        ranges.push(range);
-    } while (this.tn.omit(","));
+    if (token === "min")
+        range.push(ProtoBuf.ID_MIN);
+    else if (token === "max")
+        range.push(ProtoBuf.ID_MAX);
+    else
+        range.push(mkNumber(token));
+    this.tn.skip("to");
+    token = this.tn.next();
+    if (token === "min")
+        range.push(ProtoBuf.ID_MIN);
+    else if (token === "max")
+        range.push(ProtoBuf.ID_MAX);
+    else
+        range.push(mkNumber(token));
     this.tn.skip(";");
-    return ranges;
+    msg["extensions"] = range;
 };
 
 /**

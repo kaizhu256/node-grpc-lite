@@ -340,19 +340,18 @@ MessagePrototype.calculate = function() {
  * @name ProtoBuf.Builder.Message#encodeDelimited
  * @function
  * @param {(!ByteBuffer|boolean)=} buffer ByteBuffer to encode to. Will create a new one and flip it if omitted.
- * @param {boolean=} noVerify Whether to not verify field values, defaults to `false`
  * @return {!ByteBuffer} Encoded message as a ByteBuffer
  * @throws {Error} If the message cannot be encoded or if required fields are missing. The later still
  *  returns the encoded ByteBuffer in the `encoded` property on the error.
  * @expose
  */
-MessagePrototype.encodeDelimited = function(buffer, noVerify) {
+MessagePrototype.encodeDelimited = function(buffer) {
     var isNew = false;
     if (!buffer)
         buffer = new ByteBuffer(),
         isNew = true;
     var enc = new ByteBuffer().LE();
-    T.encode(this, enc, noVerify).flip();
+    T.encode(this, enc).flip();
     buffer.writeVarint32(enc.remaining());
     buffer.append(enc);
     return isNew ? buffer.flip() : buffer;
@@ -561,7 +560,6 @@ MessagePrototype.encodeJSON = function() {
  * @name ProtoBuf.Builder.Message.decode
  * @function
  * @param {!ByteBuffer|!ArrayBuffer|!Buffer|string} buffer Buffer to decode from
- * @param {(number|string)=} length Message length. Defaults to decode all the remainig data.
  * @param {string=} enc Encoding if buffer is a string: hex, utf8 (not recommended), defaults to base64
  * @return {!ProtoBuf.Builder.Message} Decoded message
  * @throws {Error} If the message cannot be decoded or if required fields are missing. The later still
@@ -570,10 +568,7 @@ MessagePrototype.encodeJSON = function() {
  * @see ProtoBuf.Builder.Message.decode64
  * @see ProtoBuf.Builder.Message.decodeHex
  */
-Message.decode = function(buffer, length, enc) {
-    if (typeof length === 'string')
-        enc = length,
-        length = -1;
+Message.decode = function(buffer, enc) {
     if (typeof buffer === 'string')
         buffer = ByteBuffer.wrap(buffer, enc ? enc : "base64");
     buffer = ByteBuffer.isByteBuffer(buffer) ? buffer : ByteBuffer.wrap(buffer); // May throw

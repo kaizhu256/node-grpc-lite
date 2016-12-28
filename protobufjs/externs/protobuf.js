@@ -349,11 +349,10 @@ ProtoBuf.Reflect.Message.prototype.calculate = function(message) {};
 /**
  * @param {!ProtoBuf.Builder.Message} message
  * @param {!ByteBuffer} buffer
- * @param {bool} noVerify
  * @return {!ByteBuffer}
  * @throws {Error}
  */
-ProtoBuf.Reflect.Message.prototype.encodeDelimited = function(message, buffer, noVerify) {};
+ProtoBuf.Reflect.Message.prototype.encodeDelimited = function(message, buffer) {};
 
 /**
  * @param {!ByteBuffer} buffer

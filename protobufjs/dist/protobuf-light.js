@@ -57,7 +57,7 @@
      * @const
      * @expose
      */
-    ProtoBuf.VERSION = "5.0.1";
+    ProtoBuf.VERSION = "5.0.0";
 
     /**
      * Wire types.
@@ -888,10 +888,9 @@
          * @expose
          */
         ElementPrototype.verifyValue = function(value) {
-            var self = this;
-            function fail(val, msg) {
-                throw Error("Illegal value for "+self.toString(true)+" of type "+self.type.name+": "+val+" ("+msg+")");
-            }
+            var fail = function(val, msg) {
+                throw Error("Illegal value for "+this.toString(true)+" of type "+this.type.name+": "+val+" ("+msg+")");
+            }.bind(this);
             switch (this.type) {
                 // Signed 32bit
                 case ProtoBuf.TYPES["int32"]:
@@ -1381,10 +1380,10 @@
 
             /**
              * Extensions range.
-             * @type {!Array.<number>|undefined}
+             * @type {!Array.<number>}
              * @expose
              */
-            this.extensions = undefined;
+            this.extensions = [ProtoBuf.ID_MIN, ProtoBuf.ID_MAX];
 
             /**
              * Runtime message class.
@@ -1783,19 +1782,18 @@
                  * @name ProtoBuf.Builder.Message#encodeDelimited
                  * @function
                  * @param {(!ByteBuffer|boolean)=} buffer ByteBuffer to encode to. Will create a new one and flip it if omitted.
-                 * @param {boolean=} noVerify Whether to not verify field values, defaults to `false`
                  * @return {!ByteBuffer} Encoded message as a ByteBuffer
                  * @throws {Error} If the message cannot be encoded or if required fields are missing. The later still
                  *  returns the encoded ByteBuffer in the `encoded` property on the error.
                  * @expose
                  */
-                MessagePrototype.encodeDelimited = function(buffer, noVerify) {
+                MessagePrototype.encodeDelimited = function(buffer) {
                     var isNew = false;
                     if (!buffer)
                         buffer = new ByteBuffer(),
                         isNew = true;
                     var enc = new ByteBuffer().LE();
-                    T.encode(this, enc, noVerify).flip();
+                    T.encode(this, enc).flip();
                     buffer.writeVarint32(enc.remaining());
                     buffer.append(enc);
                     return isNew ? buffer.flip() : buffer;
@@ -2004,7 +2002,6 @@
                  * @name ProtoBuf.Builder.Message.decode
                  * @function
                  * @param {!ByteBuffer|!ArrayBuffer|!Buffer|string} buffer Buffer to decode from
-                 * @param {(number|string)=} length Message length. Defaults to decode all the remainig data.
                  * @param {string=} enc Encoding if buffer is a string: hex, utf8 (not recommended), defaults to base64
                  * @return {!ProtoBuf.Builder.Message} Decoded message
                  * @throws {Error} If the message cannot be decoded or if required fields are missing. The later still
@@ -2013,10 +2010,7 @@
                  * @see ProtoBuf.Builder.Message.decode64
                  * @see ProtoBuf.Builder.Message.decodeHex
                  */
-                Message.decode = function(buffer, length, enc) {
-                    if (typeof length === 'string')
-                        enc = length,
-                        length = -1;
+                Message.decode = function(buffer, enc) {
                     if (typeof buffer === 'string')
                         buffer = ByteBuffer.wrap(buffer, enc ? enc : "base64");
                     buffer = ByteBuffer.isByteBuffer(buffer) ? buffer : ByteBuffer.wrap(buffer); // May throw
@@ -2277,7 +2271,7 @@
         /**
          * Decodes an encoded message and returns the decoded message.
          * @param {ByteBuffer} buffer ByteBuffer to decode from
-         * @param {number=} length Message length. Defaults to decode all remaining data.
+         * @param {number=} length Message length. Defaults to decode all the available data.
          * @param {number=} expectedGroupEndId Expected GROUPEND id if this is a legacy group
          * @return {ProtoBuf.Builder.Message} Decoded message
          * @throws {Error} If the message cannot be decoded
@@ -2527,10 +2521,9 @@
          */
         FieldPrototype.verifyValue = function(value, skipRepeated) {
             skipRepeated = skipRepeated || false;
-            var self = this;
-            function fail(val, msg) {
-                throw Error("Illegal value for "+self.toString(true)+" of type "+self.type.name+": "+val+" ("+msg+")");
-            }
+            var fail = function(val, msg) {
+                throw Error("Illegal value for "+this.toString(true)+" of type "+this.type.name+": "+val+" ("+msg+")");
+            }.bind(this);
             if (value === null) { // NULL values for optional fields
                 if (this.required)
                     fail(typeof value, "required");
@@ -3144,9 +3137,6 @@
                                         callback(err);
                                         return;
                                     }
-                                    // Coalesce to empty string when service response has empty content
-                                    if (res === null)
-                                        res = ''
                                     try { res = method.resolvedResponseType.clazz.decode(res); } catch (notABuffer) {}
                                     if (!res || !(res instanceof method.resolvedResponseType.clazz)) {
                                         callback(Error("Illegal response type received in service method "+ T.name+"#"+method.name));
@@ -3590,12 +3580,13 @@
                                 subObj.push(svc);
                             });
 
-                        // Set extension ranges
+                        // Set extension range
                         if (def["extensions"]) {
-                            if (typeof def["extensions"][0] === 'number') // pre 5.0.1
-                                obj.extensions = [ def["extensions"] ];
-                            else
-                                obj.extensions = def["extensions"];
+                            obj.extensions = def["extensions"];
+                            if (obj.extensions[0] < ProtoBuf.ID_MIN)
+                                obj.extensions[0] = ProtoBuf.ID_MIN;
+                            if (obj.extensions[1] > ProtoBuf.ID_MAX)
+                                obj.extensions[1] = ProtoBuf.ID_MAX;
                         }
 
                         // Create on top of current namespace
@@ -3634,16 +3625,8 @@
                             def["fields"].forEach(function(fld) {
                                 if (obj.getChild(fld['id']|0) !== null)
                                     throw Error("duplicate extended field id in "+obj.name+": "+fld['id']);
-                                // Check if field id is allowed to be extended
-                                if (obj.extensions) {
-                                    var valid = false;
-                                    obj.extensions.forEach(function(range) {
-                                        if (fld["id"] >= range[0] && fld["id"] <= range[1])
-                                            valid = true;
-                                    });
-                                    if (!valid)
-                                        throw Error("illegal extended field id in "+obj.name+": "+fld['id']+" (not within valid ranges)");
-                                }
+                                if (fld['id'] < obj.extensions[0] || fld['id'] > obj.extensions[1])
+                                    throw Error("illegal extended field id in "+obj.name+": "+fld['id']+" ("+obj.extensions.join(' to ')+" expected)");
                                 // Convert extension field names to camel case notation if the override is set
                                 var name = fld["name"];
                                 if (this.options['convertFieldsToCamelCase'])

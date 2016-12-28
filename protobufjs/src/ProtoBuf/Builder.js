@@ -243,12 +243,13 @@ ProtoBuf.Builder = (function(ProtoBuf, Lang, Reflect) {
                             subObj.push(svc);
                         });
 
-                    // Set extension ranges
+                    // Set extension range
                     if (def["extensions"]) {
-                        if (typeof def["extensions"][0] === 'number') // pre 5.0.1
-                            obj.extensions = [ def["extensions"] ];
-                        else
-                            obj.extensions = def["extensions"];
+                        obj.extensions = def["extensions"];
+                        if (obj.extensions[0] < ProtoBuf.ID_MIN)
+                            obj.extensions[0] = ProtoBuf.ID_MIN;
+                        if (obj.extensions[1] > ProtoBuf.ID_MAX)
+                            obj.extensions[1] = ProtoBuf.ID_MAX;
                     }
 
                     // Create on top of current namespace
@@ -287,16 +288,8 @@ ProtoBuf.Builder = (function(ProtoBuf, Lang, Reflect) {
                         def["fields"].forEach(function(fld) {
                             if (obj.getChild(fld['id']|0) !== null)
                                 throw Error("duplicate extended field id in "+obj.name+": "+fld['id']);
-                            // Check if field id is allowed to be extended
-                            if (obj.extensions) {
-                                var valid = false;
-                                obj.extensions.forEach(function(range) {
-                                    if (fld["id"] >= range[0] && fld["id"] <= range[1])
-                                        valid = true;
-                                });
-                                if (!valid)
-                                    throw Error("illegal extended field id in "+obj.name+": "+fld['id']+" (not within valid ranges)");
-                            }
+                            if (fld['id'] < obj.extensions[0] || fld['id'] > obj.extensions[1])
+                                throw Error("illegal extended field id in "+obj.name+": "+fld['id']+" ("+obj.extensions.join(' to ')+" expected)");
                             // Convert extension field names to camel case notation if the override is set
                             var name = fld["name"];
                             if (this.options['convertFieldsToCamelCase'])
