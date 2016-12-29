@@ -1,18 +1,21 @@
-<svg height="238" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="238" fill="#555" width="720"></rect>
+<svg height="286" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="286" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">2016-12-29 09:55:49 +0800</tspan>
-<tspan x="10" y="42">- update documentation</tspan>
+<tspan x="10" y="26">2016-12-29 10:09:19 +0800</tspan>
+<tspan x="10" y="42">- update devDependencies</tspan>
 <tspan x="10" y="58"></tspan>
-<tspan x="10" y="74">2016-12-29 03:40:41 +0800</tspan>
-<tspan x="10" y="90">- npm publish 2016.12.2</tspan>
-<tspan x="10" y="106">- streamline static-dependencies</tspan>
-<tspan x="10" y="122">- add file busybox</tspan>
-<tspan x="10" y="138"></tspan>
-<tspan x="10" y="154">2016-12-28 21:11:59 +0800</tspan>
-<tspan x="10" y="170">- npm publish 2016.12.1</tspan>
+<tspan x="10" y="74">2016-12-29 09:55:49 +0800</tspan>
+<tspan x="10" y="90">- update documentation</tspan>
+<tspan x="10" y="106"></tspan>
+<tspan x="10" y="122">2016-12-29 03:40:41 +0800</tspan>
+<tspan x="10" y="138">- npm publish 2016.12.2</tspan>
+<tspan x="10" y="154">- streamline static-dependencies</tspan>
+<tspan x="10" y="170">- add file busybox</tspan>
 <tspan x="10" y="186"></tspan>
-<tspan x="10" y="202">2014-03-26 02:31:50 +0700</tspan>
-<tspan x="10" y="218">add blank README.md</tspan>
+<tspan x="10" y="202">2016-12-28 21:11:59 +0800</tspan>
+<tspan x="10" y="218">- npm publish 2016.12.1</tspan>
+<tspan x="10" y="234"></tspan>
+<tspan x="10" y="250">2014-03-26 02:31:50 +0700</tspan>
+<tspan x="10" y="266">add blank README.md</tspan>
 </text>
 </svg>
