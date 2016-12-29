@@ -1,0 +1,15 @@
+<svg height="190" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="190" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">2016-12-29 03:40:41 +0800</tspan>
+<tspan x="10" y="42">- npm publish 2016.12.2</tspan>
+<tspan x="10" y="58">- streamline static-dependencies</tspan>
+<tspan x="10" y="74">- add file busybox</tspan>
+<tspan x="10" y="90"></tspan>
+<tspan x="10" y="106">2016-12-28 21:11:59 +0800</tspan>
+<tspan x="10" y="122">- npm publish 2016.12.1</tspan>
+<tspan x="10" y="138"></tspan>
+<tspan x="10" y="154">2014-03-26 02:31:50 +0700</tspan>
+<tspan x="10" y="170">add blank README.md</tspan>
+</text>
+</svg>
