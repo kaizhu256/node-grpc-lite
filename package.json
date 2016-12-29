@@ -1,10 +1,9 @@
 {
     "package.json": true,
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "this zero-dependency package will download and install grpc v1.0.1 prebuilt-binaries from https://github.com/kaizhu256/node-grpc-lite",
+    "description": "this zero-dependency package will download and install the grpc-v1.0.1 prebuilt-binary from https://storage.googleapis.com/grpc-precompiled-binaries/node/grpc",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
-        "n": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": { "node": ">=4 <7" },
@@ -30,5 +29,5 @@
 
 
     },
-    "version": "2016.12.2"
+    "version": "2016.12.3"
 }

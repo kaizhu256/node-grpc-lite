@@ -8,8 +8,8 @@ shNpmPostinstall() {(set -e
         'node-v' + process.versions.modules + '-' + process.platform + '-' + process.arch
     );")
     FILE_BASE="grpc_node-v$VERSION-$SUB_VERSION.node"
-    FILE_URL="https://storage.googleapis.com/grpc-precompiled-binaries\
-/node/grpc/v$VERSION/$SUB_VERSION.tar.gz"
+    FILE_URL="https://storage.googleapis.com\
+/grpc-precompiled-binaries/node/grpc/v$VERSION/$SUB_VERSION.tar.gz"
     case "$(uname)" in
     Darwin)
         # init busybox
@@ -54,7 +54,7 @@ shNpmPostinstall() {(set -e
         mkdir -p external
         cp "/tmp/$FILE_BASE" external
     fi
-    for DIR in .bin electron-lite n utility2
+    for DIR in .bin electron-lite utility2
     do
         (if [ -d node_modules/$DIR ] && [ ! -d $DIR ]; then mv node_modules/$DIR .; fi)
     done

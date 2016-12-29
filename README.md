@@ -1,8 +1,8 @@
 grpc-lite
 =========
-this zero-dependency package will download and install grpc v1.0.1 prebuilt-binaries from https://github.com/kaizhu256/node-grpc-lite
+this zero-dependency package will download and install the grpc-v1.0.1 prebuilt-binary from https://storage.googleapis.com/grpc-precompiled-binaries/node/grpc
 
-[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-grpc-lite.svg)](https://travis-ci.org/kaizhu256/node-grpc-lite)
+[![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-grpc-lite.svg)](https://travis-ci.org/kaizhu256/node-grpc-lite) [![grpc coverage](https://kaizhu256.github.io/node-grpc-lite/build..alpha..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-grpc-lite/build..alpha..travis-ci.org/coverage.html/index.html)
 
 [![NPM](https://nodei.co/npm/grpc-lite.png?downloads=true)](https://www.npmjs.com/package/grpc-lite)
 
@@ -20,18 +20,18 @@ this zero-dependency package will download and install grpc v1.0.1 prebuilt-bina
 - upgrade to grpc v1.1.x when stable
 - none
 
-#### change since 6410d933
-- npm publish 2016.12.2
-- streamline static-dependencies
-- add file busybox
+#### change since 6f1f48ac
+- npm publish 2016.12.3
+- update documentation
 - none
 
 #### this package requires
 - darwin or linux os
+- node (version v4.x to v6.x)
 
 #### additional info
-- currently both this package (and standard node-grpc package) does not support node v7.0.0 or higher (https://github.com/grpc/grpc/issues/8649)
-- includes external linux busybox binary from https://busybox.net/downloads/binaries/1.21.1/busybox-i486
+- current node-grpc implementation (which this package is based) does not support node v7.0.0 or higher (https://github.com/grpc/grpc/issues/8649)
+- includes external busybox binary from https://busybox.net/downloads/binaries/1.21.1/busybox-i486
 
 
 
@@ -67,7 +67,6 @@ this zero-dependency package will download and install grpc v1.0.1 prebuilt-bina
     "description": "{{packageJson.description}}",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
-        "n": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": { "node": ">=4 <7" },
@@ -93,7 +92,7 @@ rm -fr external /tmp/grpc_node-* && \
 npm run postinstall && \
 export PORT=$(utility2 shServerPortRandom) && utility2 test test.js"
     },
-    "version": "2016.12.2"
+    "version": "2016.12.3"
 }
 ```
 
