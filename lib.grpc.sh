@@ -10,10 +10,10 @@ shNpmPostinstall() {(set -e
     FILE_BASE="grpc_node-v$VERSION-$SUB_VERSION.node"
     FILE_URL="https://storage.googleapis.com\
 /grpc-precompiled-binaries/node/grpc/v$VERSION/$SUB_VERSION.tar.gz"
+    TAR=tar
     case "$(uname)" in
     Darwin)
-        # init busybox
-        alias tar="busybox tar"
+        TAR="./busybox tar"
         ;;
     esac
     if [ ! -f "external/$FILE_BASE" ]
@@ -28,10 +28,10 @@ shNpmPostinstall() {(set -e
             # download file
             else
                 printf "downloading $FILE_URL to /tmp/$FILE_BASE ...\n"
-                curl -#L -o "$FILE_TMP" "$FILE_URL"
+                curl -#Lo "$FILE_TMP" "$FILE_URL"
                 mkdir -p "$FILE_TMP.dir"
                 # untar file
-                if (tar -C "$FILE_TMP.dir" -xzf "$FILE_TMP" 2>/dev/null)
+                if ($TAR -C "$FILE_TMP.dir" -xzf "$FILE_TMP" 2>/dev/null)
                 then
                     cp "$FILE_TMP.dir/extension_binary/grpc_node.node" "$FILE_TMP"
                 fi
